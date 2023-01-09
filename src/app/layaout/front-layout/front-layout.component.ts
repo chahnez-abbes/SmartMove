@@ -19,11 +19,21 @@ ngOnInit(): void {
     this.dataArray= data
   
   })
- 
+
 
 
 
 
 }
+
+ logout(){
+localStorage.removeItem('token')
+localStorage.removeItem('role')
+
+
+ }
+
+
+
 
 }

@@ -27,7 +27,8 @@ let data2={
   about: data.about, 
   image:data.image,
   category: data.category, 
-  user: " chahinez abbes"
+  user: localStorage.getItem('name'),
+  uid:localStorage.getItem('id')
 }
 
 this.data.addproduct(data2).subscribe(response=>{

@@ -14,7 +14,7 @@ export class CartComponent implements OnInit {
 
   dataArray!: any;
   msg!: string;
-  constructor( private route:ActivatedRoute, private cart: CartService){
+  constructor( private route:ActivatedRoute, private cart: CartService, private data: DataService){
 
 this.cart.cart().subscribe(data=>{
   this.dataArray= data
@@ -76,4 +76,35 @@ this.dataArray=[]
 this.somme=0
 })
 }
+
+
+checkout(){
+let user = localStorage.getItem('id')
+let command 
+console.log(this.dataArray)
+  for (let i = 0; i < this.dataArray.length; i++) {
+    
+    command={
+    productid: this.dataArray[i].productid,
+    image: this.dataArray[i].image,
+    price: this.dataArray[i].price,
+    productname: this.dataArray[i].productname,
+    amount: this.dataArray[i].amount,
+    seller: this.dataArray[i].seller,
+    user: user,
+   
+    }
+    console.log(command)
+    this.data.getOneproduct(this.dataArray[i].productid).subscribe(resp=>{
+      // console.log(resp)
+    })
+   
+  }
+
+
+
+
+
+}
+
 }

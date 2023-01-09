@@ -5,20 +5,20 @@
         <div class="col-lg-7 mb-5">
             <div class="contact-form bg-light p-30">
                 <div id="success"></div>
-                <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                <form name="sentMessage" id="contactForm" novalidate="novalidate" #f="ngForm"  (ngSubmit)="login(f)">
                     <div class="control-group">
                         <input type="text" class="form-control" id="fname" placeholder="Your User name"
-                            required="required" data-validation-required-message="Please enter your name" />
+                            required="required" data-validation-required-message="Please enter your name"  required name="fname" #fname ngModel />
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="control-group">
+                 <div class="control-group">
                         <input type="email" class="form-control" id="email" placeholder="Your Email"
-                            required="required" data-validation-required-message="Please enter your email" />
+                            data-validation-required-message="Please enter your email" required name="email" #email ngModel />
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="control-group">
                         <input type="password" class="form-control" id="password" placeholder="Your password"
-                            required="required" data-validation-required-message="Please enter your password" />
+                        required name="password" #password ngModel data-validation-required-message="Please enter your password" />
                         <p class="help-block text-danger"></p>
                     </div>
                    

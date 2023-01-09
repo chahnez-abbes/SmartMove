@@ -73,6 +73,7 @@ console.log(this.dataArray)
     this.data.addtofav(id,favorit).subscribe(resp=>{
       console.log("add")
       this.msg="product added"
+      alert(this.msg)
     },(err: HttpErrorResponse)=>{
       console.error(err.error)}
       

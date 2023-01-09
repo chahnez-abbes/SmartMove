@@ -5,6 +5,7 @@ import { AuthAdminLayoutComponent } from './layaout/auth-admin-layout/auth-admin
 import { FrontLayoutComponent } from './layaout/front-layout/front-layout.component';
 import { SellerLayoutComponent } from './layaout/seller-layout/seller-layout.component';
 import { UserLayoutComponent } from './layaout/user-layout/user-layout.component';
+import { NoguarduserGuard } from './views/guard/noguarduser.guard';
 
 const routes: Routes = [
 {
@@ -17,7 +18,7 @@ const routes: Routes = [
       loadChildren:()=>import('./views/front/home/home.module').then(m=>m.HomeModule)
     },{
       path:'loginuser',
-      loadChildren:()=>import('./views/front/loginuser/loginuser.module').then(m=>m.LoginuserModule)
+      loadChildren:()=>import('./views/front/loginuser/loginuser.module').then(m=>m.LoginuserModule),canActivateChild:[NoguarduserGuard]
     },{
       path:'shop',
       loadChildren:()=>import('./views/front/shop/shop.module').then(m=>m.ShopModule)
@@ -29,13 +30,16 @@ const routes: Routes = [
       loadChildren:()=>import('./views/front/cart/cart.module').then(m=>m.CartModule)
     },{
       path:'signup',
-      loadChildren:()=>import('./views/front/register/register.module').then(m=>m.RegisterModule)
+      loadChildren:()=>import('./views/front/register/register.module').then(m=>m.RegisterModule),canActivateChild:[NoguarduserGuard]
     },{
       path:'details/:id',
       loadChildren:()=>import('./views/front/details/details.module').then(m=>m.DetailsModule)
     },{
       path:'favorit',
       loadChildren:()=>import('./views/front/favorits/favorits.module').then(m=>m.FavoritsModule)
+    },{
+      path:'checkout',
+      loadChildren:()=>import('./views/front/checkout/checkout.module').then(m=>m.CheckoutModule)
     }
      
   ]

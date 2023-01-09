@@ -30,7 +30,7 @@ details(id: string){
   console.log(id)
   this.route.navigate(['/details/'+id])
 }
-addtocart(productname: string, price:number , qte: number, _id:string){
+addtocart(productname: string, price:number , qte: number, _id:string, image: string, seller: string,){
  
   let data2={
     productname: productname,
@@ -42,6 +42,7 @@ addtocart(productname: string, price:number , qte: number, _id:string){
   this.cart.addcart(data2).subscribe(resp=>{
     console.log("add")
     this.msg="product added"
+    alert(this.msg)
   },(err: HttpErrorResponse)=>{
     console.error(err.error)}
     

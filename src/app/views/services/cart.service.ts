@@ -27,4 +27,11 @@ updatecart(id:any, amount: any){
 clear(){
         return this.http.delete('http://localhost:3000/clear')
            }        
-}
+
+
+command(id:any, command:any ){
+  
+  return this.http.patch('http://localhost:3000/command'+id,{command: command})       }
+
+          }
+
