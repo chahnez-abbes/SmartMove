@@ -29,6 +29,10 @@ getOneproduct(id:any){
            } 
  addreview(id:any, review: any){
   return this.http.patch(`http://localhost:3000/product/${id}/review`,{review:review})
-  }       
-
+  } 
+  
+  //  add to favorit 
+  addtofav(id:any, favorit: any){
+    return this.http.patch('http://localhost:3000/userfav/'+id,{favorit:favorit})
+    }
   }

@@ -50,9 +50,38 @@ addtocart(productname: string, price:number , qte: number, _id:string){
 
 }
 
+addtofav(productId: string, image: string,price: number, productname: string, user: string, uid:string){
+  
+  let  favorit=
+    {
+      productId: productId,
+      image: image,
+      price: price,
+      productname: productname,
+      uid: uid,
+      user: user
+    }
+  
+  let id= localStorage.getItem('id')
+  console.log(id)
+console.log(favorit)  
+  
+  this.data.addtofav(id,favorit).subscribe(resp=>{
+    console.log("add")
+    this.msg="product added"
+  },(err: HttpErrorResponse)=>{
+    console.error(err.error)}
+    
+    )
+  
+
+}
+
+}
+
  
 
 
 
 
-}
+

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import{ JwtHelperService} from '@auth0/angular-jwt'
+import { Router } from '@angular/router';
 import { UsersService } from './users.service';
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,7 @@ profile: any
   isLoggedIn: Boolean= false 
 
  helper= new JwtHelperService()
-  constructor( private http: HttpClient, private user:UsersService) { }
+  constructor( private http: HttpClient, private user:UsersService, private router:Router) { }
 
 
 login(data: any){
@@ -45,7 +46,13 @@ this.profile=res
   localStorage.setItem('email',this.profile.email)
   localStorage.setItem('roles',this.profile.roles)
   localStorage.setItem('image',this.profile.image)
-
+  localStorage.setItem('id',this.profile._id)
+  let roles = localStorage.getItem("roles")
+  if (roles="Admin") {
+    this.router.navigate(['/admin'])
+} else {
+  this.router.navigate(['/'])
+}
 
 })
 
@@ -71,6 +78,11 @@ LoggedIn(){
   return true
 }
 
+
+logout(){
+  localStorage.removeItem('token')
+  this.router.navigate(['/loginuser'])
+}
 }
 
 

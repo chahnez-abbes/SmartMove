@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/views/services/cart.service';
+import { UsersService } from 'src/app/views/services/users.service';
 
 @Component({
   selector: 'app-front-layout',
@@ -8,8 +9,8 @@ import { CartService } from 'src/app/views/services/cart.service';
 })
 export class FrontLayoutComponent implements OnInit{
   dataArray: any;
-
-constructor(private cart: CartService){
+  email: any
+constructor(private cart: CartService, private user:UsersService){
  
 }
 
@@ -18,6 +19,11 @@ ngOnInit(): void {
     this.dataArray= data
   
   })
+ 
+
+
+
+
 }
 
 }

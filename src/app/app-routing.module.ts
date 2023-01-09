@@ -33,7 +33,11 @@ const routes: Routes = [
     },{
       path:'details/:id',
       loadChildren:()=>import('./views/front/details/details.module').then(m=>m.DetailsModule)
+    },{
+      path:'favorit',
+      loadChildren:()=>import('./views/front/favorits/favorits.module').then(m=>m.FavoritsModule)
     }
+     
   ]
 },
 {
